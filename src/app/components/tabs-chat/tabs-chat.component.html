@@ -1,0 +1,99 @@
+<!--<button mat-mini-fab color="primary" size="md" aria-label="Example icon button with a delete icon">-->
+<!--  <mat-icon>forum</mat-icon>-->
+<!--</button>-->
+
+<div class="app-chat chat">
+
+  <div class="chat__user">
+    <ng-container *ngIf="user$ | async as user">
+      <div class="chat__user-info">
+        <div class="users-list__user-avatar" [style.--avatar-background]="user.color">
+          <mat-icon>{{user.avatar}}</mat-icon>
+        </div>
+        <p>{{ user.name }}</p>
+      </div>
+      <div class="chat__user-settings">
+        <button mat-icon-button color="primary" size="md" aria-label="Example icon button with a delete icon">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+      </div>
+    </ng-container>
+
+  </div>
+
+  <div class="chat__users-list users-list">
+    <p class="users-list__title">Участники</p>
+    <ng-container *ngIf="users$ | async as users; else emptyMessage">
+      <ng-container *ngFor="let user of users">
+        <div class="users-list__user">
+          <div class="users-list__user-avatar" [style.--avatar-background]="user.color">
+            <mat-icon>{{user.avatar}}</mat-icon>
+          </div>
+          <span class="users-list__user-name">{{user.name}}</span>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #emptyMessage>
+      <div class="empty-message">
+        <p>
+          В чате пока что нет других участников.
+        </p>
+        <mat-icon>bedtime</mat-icon>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="chat__chat-name">
+    Наш чат
+  </div>
+
+  <div class="chat__chat chat-area">
+
+    <div class="chat-area__message">
+      <ng-container *ngIf="messages$ | async as messages; else emptyMessage">
+        <ng-container *ngFor="let message of messages">
+          <div class="message">
+            <div class="users-list__user-avatar" [style.--avatar-background]="message.user.color">
+              <mat-icon>{{message.user.avatar}}</mat-icon>
+            </div>
+            <div class="message__message-area">
+              <div class="message__info">
+                <span class="message__info-user-name">{{message.user.name}}</span>
+                <span class="message__info-date">{{message.date}}</span>
+              </div>
+              <div class="message__message">
+                <p>{{message.message}}</p>
+              </div>
+          </div>
+          </div>
+        </ng-container>
+      </ng-container>
+
+      <ng-template #emptyMessage>
+        <div class="empty-message">
+          <p>
+            В чате пока что нет других участников.
+          </p>
+          <mat-icon>bedtime</mat-icon>
+        </div>
+      </ng-template>
+    </div>
+
+<!--    Заменить на тег form-->
+    <div class="chat-area__form">
+      <mat-form-field class="chat-area__form-field">
+        <textarea rows="1" class="chat-area__text-area" matInput placeholder="Написать сообщение..." [formControl]="textArea"></textarea>
+      </mat-form-field>
+
+      <button class="chat-area__form-send-button" mat-icon-button color="primary" aria-label="Отправить" (click)="submit()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+
+  </div>
+
+
+</div>
+
+
