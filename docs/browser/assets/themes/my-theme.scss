@@ -1,0 +1,54 @@
+:root {
+  --primary-color: #c1c1c2;
+
+  --root-backround: #1b1c26;
+  --page-backround: #292b3a;
+  --chat-backround: #323445;
+
+  --root-color: #efefef;
+}
+
+
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+$my-primary-palette: (
+50: #ecedf6,
+100: #dcdcde,
+200: #d0d0d2,
+300: #c9c9cb,
+400: #c3c3c4,
+500: var(--primary-color),
+600: #a0a0a1,
+700: #a19f9f,
+800: #88888a,
+900: #717173,
+   A100: #8c9eff,
+   A200: #536dfe,
+   A400: #3d5afe,
+   A700: #304ffe,
+   contrast: (
+50: $dark-primary-text,
+100: $dark-primary-text,
+200: $dark-primary-text,
+300: $light-primary-text,
+400: $light-primary-text,
+500: $light-primary-text,
+600: $light-primary-text,
+700: $light-primary-text,
+800: $light-primary-text,
+900: $light-primary-text,
+      A100: $dark-primary-text,
+             A200: $light-primary-text,
+                    A400: $light-primary-text,
+                           A700: $light-primary-text,
+)
+);
